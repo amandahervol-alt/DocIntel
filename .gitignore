@@ -1,0 +1,17 @@
+# Secrets & Environment
+.env
+*.env
+.env.local
+
+# Python cache & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+env/
+
+# System / IDE
+.DS_Store
+Thumbs.db
+.abacus.donotdelete

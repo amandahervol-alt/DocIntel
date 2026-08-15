@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocIntel - AI Document Analysis</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>DocIntel</h1>
+            <p class="tagline">AI-powered document analysis</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section id="upload-section">
+            <div id="drop-zone" class="drop-zone">
+                <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="drop-text">Drag and drop documents here</p>
+                <p class="drop-subtext">or click to browse</p>
+                <p class="file-types">PDF, DOCX, or TXT • Max 20MB per file</p>
+                <input type="file" id="file-input" accept=".pdf,.docx,.txt" multiple hidden>
+            </div>
+
+            <!-- Optional Context -->
+            <div class="context-section">
+                <label for="context-input">Optional: Tell DocIntel what to focus on</label>
+                <input 
+                    type="text" 
+                    id="context-input" 
+                    placeholder='e.g., "Focus on financial risks and liabilities" or "Extract all action items and deadlines"'
+                    maxlength="500"
+                >
+            </div>
+
+            <!-- Uploaded Documents -->
+            <div id="documents-list" class="documents-list" style="display: none;">
+                <h3>Uploaded Documents</h3>
+                <div id="documents-container"></div>
+            </div>
+
+            <!-- Analyze Button -->
+            <button id="analyze-btn" class="analyze-btn" style="display: none;">
+                Analyze Documents
+            </button>
+        </section>
+
+        <!-- Progress Indicator -->
+        <div id="progress-section" class="progress-section" style="display: none;">
+            <div class="spinner"></div>
+            <p id="progress-text">Analyzing documents...</p>
+        </div>
+
+        <!-- Results Section -->
+        <section id="results-section" class="results-section" style="display: none;">
+            <div class="results-header">
+                <h2>Analysis Results</h2>
+                <div class="export-buttons">
+                    <button id="export-markdown-btn" class="export-btn">
+                        Download as Markdown
+                    </button>
+                    <button id="export-txt-btn" class="export-btn secondary">
+                        Download as TXT
+                    </button>
+                </div>
+            </div>
+
+            <div id="results-container"></div>
+        </section>
+
+        <!-- Error Display -->
+        <div id="error-section" class="error-section" style="display: none;">
+            <div class="error-content">
+                <strong>Error:</strong>
+                <p id="error-message"></p>
+            </div>
+            <button id="dismiss-error-btn" class="dismiss-btn">Dismiss</button>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
