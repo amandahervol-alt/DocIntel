@@ -72,7 +72,6 @@ Provide your cross-document analysis now, with each section clearly labeled."""
         response = client.messages.create(
             model=get_model_name(),
             max_tokens=4096,
-            temperature=0.2,
             messages=[{"role": "user", "content": prompt}]
         )
         comparison_text = response.content[0].text
